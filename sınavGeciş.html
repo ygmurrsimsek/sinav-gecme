@@ -1,0 +1,73 @@
+p id="result1"></p>
+<p id="result2"></p>
+<p><input type="text" id="midterm"></p>
+<p><input type="text" id="final"></p>
+<button type="button" onclick="noteResult()">Sonuc</button>
+
+<script>
+    function noteResult(){
+        var midtermNote=Number(document.getElementById('midterm').value);
+        var finalNote=Number(document.getElementById('final').value);
+        if(isNaN(midtermNote)){
+            var message="Vize notunu sayisal bir değer girmelsin."
+        }
+        else if(isNaN(finalNote)){
+            message="Final notunu sayisal bir değer girmelsin."
+        }
+        else{
+            var average=midtermNote*0.3+finalNote*0.7;
+            message=(average>=60) ? "Dersi geçtiniz." : "Dersten kaldiniz.";
+        }
+        document.getElementById('result').innerHTML="Ortalamaniz:";
+        document.getElementById('result1').innerHTML=average;
+        document.getElementById('result2').innerHTML=message;
+    }
+/*ilk olarak bunlara girilen değerlerin sayi mi olduğuna bakarız.*/
+</script>
+  
+
+<p id="result"></p>
+<p><input type="text" id="midterm"></p>
+<p><input type="text" id="final"></p>
+<button type="button" onclick="noteResult()">Sonuc</button>
+
+<script>
+    function noteResult(){
+        var midtermNote=Number(document.getElementById('midterm').value);
+        var finalNote=Number(document.getElementById('final').value);
+        if(isNaN(midtermNote)){
+            var message="Vize notunu sayisal bir değer girmelsin.";
+        }
+        else if(isNaN(finalNote)){
+            message="Final notunu sayisal bir değer girmelsin.";
+        }
+        else{
+            if(midtermNote>100 &&  finalNote>100){
+            message="Lütfen 0-100 arasinda not giriniz.";
+            }
+            if(midtermNote<0 &&  finalNote<0){
+                message="Lütfen 0-100 arasinda not giriniz.";
+            }
+            var average=midtermNote*0.3+finalNote*0.7;
+            if(average<45 && average>=0){
+                message="Dersten kaldiniz.Sonucunuz:FF";
+            }
+            else if(average>=45 && average<=60){
+                message="Dersten kaldiniz.Sonucunuz:DD";
+            }
+            else if(average<=80 && average>60){
+                message="Dersten geçtiniz.Sonucunuz:CC";
+            }
+            else if(average>80 && average<=90){
+                message="Dersten geçtiniz.Sonucunuz:BB";
+            }
+            else if(average>90 && average<100){
+                message="Dersten geçtiniz.Sonucunuz:BB";
+            }
+            else{
+                message="Lütfen 0-100 arasinda not giriniz.";
+            }
+        }
+        document.getElementById('result').innerHTML=message;
+    }
+</script>  
